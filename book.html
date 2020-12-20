@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <script>
+      function validateform(){  
+    var bookname=document.myform.bookName.value;  
+     if (bookName==null || bookName==""){  
+     alert("Name can't be blank");  
+      return false;
+      } 
+    
+
+var Categories=document.getElementById("Categories");
+var Categories_count=Categories.options.length;
+if(Categories_count==1)
+{
+alert("You can select multiple Categories");
+return false;
+}
+ 
+}
+</script>
+    
+
+
+     
+    </script> 
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <title>Add Book</title>
+    
+
+
+
+
+     
+  
+
+
+
+    <style>
+    .container {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 50px;
+    box-shadow: 0px 0px 8px 1px #c1c1c1;
+    border-radius: 8px;
+    position: relative;
+    }
+    .dropdown {
+    display: block !important;
+    width: 100% !important;
+    }
+    .btn-light {
+    color: #212529;
+    background-color: white;
+    border-color: #ced4da;
+    }
+    .custom-control {
+    display: inline-block !important;
+    }
+    .toggle-off {
+    white-space: nowrap;
+    }
+    .form-group {
+    margin-bottom: 1.3rem;
+    }
+    .custom-control {
+    margin-right: 15px;
+    }
+    .header {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background-color: #007bff!important;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    }
+    .main {
+    padding-top: 50px;
+    }
+    .header h1 {
+    text-align: center;
+    color: white;
+    padding: 10px 0px;
+    }
+    .btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    }
+    .btn-info, .btn-success,  .btn-success:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    }
+    .center-align {
+    text-align: center;
+    }
+    </style>
+    
+
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="header">
+          
+          
+        
+          <h1>Add Book</h1>
+        </div>
+        <div class="main">
+          <form action="book.html" name="myform" method="POST"  onsubmit="return validateform()" >
+      <div class="form-group">
+          <label for="bookName">Book Name</label>
+          <input type="text" class="form-control" name="bookName" id="bookName" placeholder="Enter Book Name" required />
+        </div>
+        <div class="form-group">
+          <label for="authorEmail">Author Email</label>
+          <input type="text" class="form-control" name="authorEmail" id="authorEmail" placeholder="Enter Author Email" required/>
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">https://www.</span>
+          </div>
+          <input type="text" class="form-control" name="website" id="website" placeholder=" Enter Website" required />
+        </div>
+        </div>
+        <div class="form-group">
+          <label style="display: block" class="my-1 mr-2" for="inlineFormCustomSelectPref">Cover Picture</label>
+          <input type="file" id="img" name="img" accept="image/*">
+          <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+        <div class="form-group">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categories (Multi-select Dropdown)</label>
+          <select class="selectpicker" id="Categories" multiple data-live-search="true">
+            <option>Romance</option>
+            <option>Suspense </option>
+            <option>Thriller</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Date Of Publication <span class="validity"></span></label>
+          <input id="datepicker" width="100%" placeholder="MM-DD-YYYY" required pattern=" (?:(?:0[1-9]|1[0-2])[\/\\-. ]?(?:0[1-9]|[12][0-9])|(?:(?:0[13-9]|1[0-2])[\/\\-. ]?30)|(?:(?:0[13578]|1[02])[\/\\-. ]?31))[\/\\-. ]?(?:19|20)[0-9]{2}
+">
+
+        </div>
+        <div class="form-group"></div>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="ISBN">ISBN Number</label>
+              <input type="text" class="form-control" id="ISBN" placeholder="Enter ISBN Number" required />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="website">Price</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">&#8377</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Type</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option selected>Choose...</option>
+            <option value="2">Magazine</option>
+            <option value="1">Novel</option>
+            <option value="3">Textbook</option>
+          </select>
+        </div>
+        <div class="form-group ">
+          <label style="display: block" class="my-1 mr-2" for="inlineFormCustomSelectPref">Format</label>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Paperback</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck2">
+            <label class="custom-control-label" for="customCheck2">Hardback</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck3">
+            <label class="custom-control-label" for="customCheck3">ebook</label>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label style="display: block" class="my-1 mr-2" for="inlineFormCustomSelectPref">In Stock</label>
+          <input type="checkbox" checked data-toggle="toggle" data-on="Available" data-off="Out Of Stock"
+            data-onstyle="success" data-offstyle="danger" data-height="30">
+        </div>
+        <div class="form-group">
+          <label style="display: block" class="my-1 mr-2" for="inlineFormCustomSelectPref">Rating</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">1</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">2</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline3">3</labl>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline4">4</labl>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline5" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline5">5</labl>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comment">Review</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <div class="form-group">
+        <div class="center-align">
+         <input type="submit" value="preview" class="btn btn-primary" onclick="$('myform').attr('target', '_blank');"/ >
+     
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script>
+      $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+  </body>
+</html>
